@@ -1,3 +1,4 @@
+# Transform 3-2-1 Euler Angles to Quaternion
 import numpy as np
 
 def EulerAngles2Quaternions(phi_theta_psi):
