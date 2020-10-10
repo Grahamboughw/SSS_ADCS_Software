@@ -58,7 +58,7 @@ def Satellite(t, state):
     psiE = np.arctan2(y,x)
     latitude = 90-thetaE*180/np.pi
     longitude = psiE*180/np.pi
-    igrf_output = pyIGRF.igrf_value(latitude, longitude, altitude, 	2020)
+    igrf_output = pyIGRF.igrf_value(latitude, longitude, altitude, 2020)
     BN = igrf_output[3]
     BE = igrf_output[4]
     BD = igrf_output[5]
