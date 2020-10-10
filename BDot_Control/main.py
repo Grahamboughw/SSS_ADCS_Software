@@ -72,12 +72,6 @@ timestep = 1
 tout = np.arange(0,tfinal+timestep,timestep)
 stateout = np.zeros((len(tout),len(state)))
 
-# Integrate the equations of motion
-#stateout = ode.solve_ivp(Satellite, tspan, stateinitial, method='RK45', t_eval=np.linspace(0,tspan[1],1000))
-#tout = stateout.t
-#x,y,z,xdot,ydot,zdot,q0,q1,q2,q3,p,q,r = stateout.y
-#print('Simulation Complete.')
-
 # Loop through time to integrate
 BxBout = 0*stateout[:,0]
 ByBout = 0*BxBout
@@ -120,12 +114,6 @@ stateout[:,0:5] = stateout[:,0:5]/1000
 x = stateout[:,0]
 y = stateout[:,1]
 z = stateout[:,2]
-#x = np.divide(x,1000)
-#y = np.divide(y,1000)
-#z = np.divide(z,1000)
-#xdot = np.divide(xdot,1000)
-#ydot = np.divide(ydot,1000)
-#zdot = np.divide(zdot,1000)
 
 # Extract the state vectors
 q0123out = np.empty((4,len(tout)))
@@ -223,6 +211,7 @@ plt.legend(fontsize=20)
 plt.grid(True)
 plt.show()
 
+# Find time for angular rate to settle to less than 0.5 deg/sec about all axes
 check = 0
 counter = 0
 for i in range(len(pqrout[0])):
@@ -235,6 +224,7 @@ for i in range(len(pqrout[0])):
 if check == 0:
     print("No values under 0.5 deg/sec")
 
+# Print max power used for each axis
 print("Max Power Used for x-axis: ", np.amax(powerx))
 print("Max Power Used for y-axis: ", np.amax(powery))
 print("Max Power Used for z-axis: ", np.amax(powerz))
