@@ -9,3 +9,9 @@ This folder contains the python files used for attitude determination. We are us
 
 ## BDot Control
 This folder contains the python code for the detumbling simulation of our satellite in orbit using the Bdot control method. This code was adapted from Carlos Jose Montavlo's ADCS Seminar Series MATLAB code which can be found here https://github.com/cmontalvo251/MATLAB/tree/master/ADCS_Seminar_Series. The main.py file runs the simulation of the satellite dynamics and Earth's magnetic field throughout several orbits under Bdot control. Based on the Bdot control law, the magnetorquer control torque is calculated using the satellite's angular velocity and body frame magnetic field vector at each timestep. At the end of the simulation, several quantities are plotted over time such as position, magnetic field, angular velocity, and power usage.
+
+## Reference Frame Transformations
+This folder contains the files for transforming vectors between reference frames. Currently, the only file in this folder is trajectoryTransform.py which is used to map a vector from the Earth-Centered-Inertial (ECI) Frame to a frame we call the Trajectory Frame (also called Local Vertical Local Horizon Frame). Our Trajectory Frame is defined such that we have a coordinate axis normal to the plane of our orbit, and a coordinate axis that points toward the center of Earth at every point in our orbit. As more files are developed for coordinate/reference frame transformations, they will be added here.
+
+## Rotation Functions
+This folder contains python files with useful functions relating to rotations of vectors.
